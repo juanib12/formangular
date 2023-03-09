@@ -1,0 +1,37 @@
+<div>
+    <div>
+        <h1>Form</h1>
+        <form (ngSubmit)="onSubmit()">
+            <div>
+                <label for="name">Name</label>
+                <input [(ngModel)]="model.name" type="text" id="name" required name="name" #name="ngModel">
+                <div [hidden]="name.valid || name.pristine">
+                    Name is required
+                </div>
+            </div>
+
+            <div>
+                <label for="age">Age</label>
+                <input [(ngModel)]="model.age" type="number" id="age" required name="age" #age="ngModel">
+                <div [hidden]="age.valid || age.pristine">
+                    Age is required
+                </div>
+            </div>
+
+            <button type="submit" (click)="newUser()">New User</button>
+        </form>
+    </div>
+    <div>
+        <h2>New user:</h2>
+
+        <div>
+            <div>Name</div>
+            <p>{{model.name}}</p>
+        </div>
+
+        <div>
+            <div>Age</div>
+            <p>{{model.age}}</p>
+        </div>
+    </div>
+</div>
